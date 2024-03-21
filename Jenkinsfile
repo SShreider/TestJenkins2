@@ -14,7 +14,7 @@ pipeline {
         }
 		stage('Restore packages') {
 			steps {
-				bat "dotnet restore ${workspace}\\TestJenkins.sln"
+				bat "dotnet restore ${workspace}\\TestJenkins.sln --configfile Nuget.config"
 			}
 		}
         stage('Clean') {

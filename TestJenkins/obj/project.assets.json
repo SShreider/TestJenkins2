@@ -9,7 +9,6 @@
   },
   "packageFolders": {
     "C:\\Users\\sshreider\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -22,23 +21,14 @@
       "outputPath": "C:\\src\\test_async_app_for_it\\TestJenkins\\TestJenkins\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\sshreider\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\src\\test_async_app_for_it\\TestJenkins\\Nuget.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
-      "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\sshreider\\Documents\\LOCAL_NUGET_STASH": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://artifactory.soti.net/artifactory/api/nuget/nuget": {}
-      },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
