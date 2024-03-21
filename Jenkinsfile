@@ -21,6 +21,22 @@ def restoreProjects()
 	}
 }
 
+def cleanProjects()
+{
+	for (path in projectsPaths)
+	{
+		bat "dotnet clean " + path + " /nologo /nr:false /p:configuration=\"release\" /t:clean"
+	}
+}
+
+def buildProjects()
+{
+	for (path in projectsPaths)
+	{
+		bat "dotnet build " + path + " /nologo /nr:false /p:configuration=\"release\" /t:clean;restore;rebuild"
+	}
+}
+
 pipeline 
 {
     agent any
@@ -65,14 +81,20 @@ pipeline
 		{
             steps 
 			{
-                bat "dotnet clean ${workspace}\\TestJenkins.sln /nologo /nr:false /p:configuration=\"release\" /t:clean"
+                script
+				{
+					cleanProjects()
+				}
             }
         }
         stage('Build') 
 		{
             steps 
 			{
-                bat "dotnet build ${workspace}\\TestJenkins.sln /nologo /nr:false /p:configuration=\"release\" /t:clean;restore;rebuild"
+                script
+				{
+					buildProjects()
+				}
             }
         }
     }
