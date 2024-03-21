@@ -21,7 +21,7 @@ def setTestProjectsDllNames()
 {
 	for (path in projectsPaths)
 	{
-		def projContents = new groovy.xml.XmlSlurper().parse(path)
+		def projContents = new XmlSlurper().parse(path)
 		if(!projContents.Project.PropertyGroup.IsTestProject.isEmpty() && projContents.Project.PropertyGroup.IsTestProject == true)
 		{
 			def dllName = ""
