@@ -4,12 +4,29 @@ import groovy.transform.Field
 @Field
 ArrayList projectsPaths = []
 
+@Field
+ArrayList testProjectsDlls = []
+
 @NonCPS
 def setProjectsPaths()
 {	
 	def filterProjFiles = ~/.*\.csproj$/
 	new File(WORKSPACE).traverse(type: groovy.io.FileType.FILES, nameFilter: filterProjFiles) { it ->
 		projectsPaths.add(it)
+	}
+}
+
+@NonCPS
+def setTestProjectsDllNames()
+{
+	for (path in projectsPaths)
+	{
+		def projContents = new groovy.xml.XmlSlurper().parse(path)
+		if(!projContents.Project.PropertyGroup.IsTestProject.isEmpty() && projContents.Project.PropertyGroup.IsTestProject == true)
+		{
+			def dllName = ""
+			testProjectsDlls.add(dllName)
+		}
 	}
 }
 
