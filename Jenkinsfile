@@ -4,7 +4,8 @@ ArrayList projectsPaths = []
 
 void setProjectsPaths()
 {	
-	new File(WORKSPACE).traverse(type: groovy.io.FileType.FILES) { it ->
+	def filterProjFiles = ~/.*\.csproj$/
+	new File(WORKSPACE).traverse(type: groovy.io.FileType.FILES, nameFilter: filterProjFiles) { it ->
 		println '>>>>>>> HERE'
 		println WORKSPACE
 		println it
