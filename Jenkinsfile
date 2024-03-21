@@ -1,5 +1,7 @@
 import static groovy.io.FileType.FILES
+import groovy.transform.Field
 
+@Field
 ArrayList projectsPaths = []
 
 void setProjectsPaths()
