@@ -4,6 +4,7 @@ import groovy.transform.Field
 @Field
 ArrayList projectsPaths = []
 
+@NonCPS
 void setProjectsPaths()
 {	
 	def filterProjFiles = ~/.*\.csproj$/
