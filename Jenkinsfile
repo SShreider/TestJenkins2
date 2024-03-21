@@ -3,13 +3,10 @@ import static groovy.io.FileType.FILES
 ArrayList projectsPaths = []
 
 void setProjectsPaths()
-{
-	new File('.').eachFileRecurse(FILES) {
-		if(it.name.endsWith('.csproj')) {
-			println '>>>>>>> HERE'
-			println it
-			projectsPaths.add(it.name)
-		}
+{	
+	new File('.').traverse(type: groovy.io.FileType.FILES) { it ->
+		println '>>>>>>> HERE'
+		println it
 	}
 }
 
