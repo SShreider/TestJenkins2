@@ -6,6 +6,7 @@ void setProjectsPaths()
 {	
 	new File(WORKSPACE).traverse(type: groovy.io.FileType.FILES) { it ->
 		println '>>>>>>> HERE'
+		println WORKSPACE
 		println it
 	}
 }
