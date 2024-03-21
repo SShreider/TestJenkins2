@@ -4,7 +4,7 @@ ArrayList projectsPaths = []
 
 void setProjectsPaths()
 {	
-	new File(${WORKSPACE}).traverse(type: groovy.io.FileType.FILES) { it ->
+	new File(WORKSPACE).traverse(type: groovy.io.FileType.FILES) { it ->
 		println '>>>>>>> HERE'
 		println it
 	}
