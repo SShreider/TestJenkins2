@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat "MSBuild.exe ${workspace}\\TestJenkins.sln /nologo /nr:false  /p:platform=\"x64\" /p:configuration=\"release\" /t:clean;restore;rebuild"
+                bat "dotnet build ${workspace}\\TestJenkins.sln /nologo /nr:false /p:configuration=\"release\" /t:clean;restore;rebuild"
             }
         }
     }
