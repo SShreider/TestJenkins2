@@ -23,7 +23,7 @@ def setTestProjectsDllNames()
 	{
 		def projContents = new XmlParser().parse(path)
 		println projContents
-		if(projContents.Project.PropertyGroup.IsTestProject.isEmpty())
+		if(projContents.children().find( {it.name() == "IsTestProject"})))
 		{
 			println ">>> HERE"
 			println path
