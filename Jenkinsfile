@@ -27,6 +27,14 @@ pipeline {
                 git branch: 'main', credentialsId: 'f7e62595-1e4d-4a35-8b56-062b1076e919', url: 'https://github.com/SShreider/TestJenkins2.git'
             }
         }
+		stage ('Get projects to compile') {
+			steps {
+				script
+				{
+					setProjectsPaths()
+				}
+			}
+		}
 		stage('Restore packages') {
 			steps {
 				bat "dotnet nuget locals all --clear"
