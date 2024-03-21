@@ -21,7 +21,7 @@ def setTestProjectsDllNames()
 {
 	for (path in projectsPaths)
 	{
-		def projContents = new XmlSlurper().parse(path)
+		def projContents = new XmlSlurper().parseText(path)
 		println projContents
 		if(projContents.Project.PropertyGroup.IsTestProject.isEmpty())
 		{
