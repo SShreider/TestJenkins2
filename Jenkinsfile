@@ -24,7 +24,7 @@ def setTestProjectsDllNames()
 		def projContents = new XmlSlurper().parse(path)
 		if(!projContents.Project.PropertyGroup.IsTestProject.isEmpty() && projContents.Project.PropertyGroup.IsTestProject == true)
 		{
-			def dllName = path.replace("~/\.\w+$/")
+			def dllName = path.lastIndexOf('.').with {it != -1 ? file.name[0..<it] : file.name}
 			testProjectsDlls.add(dllName)
 		}
 	}
