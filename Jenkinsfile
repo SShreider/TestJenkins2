@@ -22,14 +22,13 @@ def setTestProjectsDllNames()
 	for (path in projectsPaths)
 	{
 		def projContents = new XmlSlurper().parse(path)
+		println projContents
 		if(projContents.Project.PropertyGroup.IsTestProject.isEmpty())
 		{
 			println ">>> HERE"
 			println path
 		}
 	}
-	println ">>> END"
-	println testProjectsDlls
 }
 
 def restoreProjects()
