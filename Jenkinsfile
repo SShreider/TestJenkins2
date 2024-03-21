@@ -24,10 +24,12 @@ def setTestProjectsDllNames()
 		def projContents = new XmlSlurper().parse(path)
 		if(!projContents.Project.PropertyGroup.IsTestProject.isEmpty() && projContents.Project.PropertyGroup.IsTestProject == true)
 		{
-			def dllName = ""
+			def dllName = path.replace("~/\.\w+$/")
 			testProjectsDlls.add(dllName)
 		}
 	}
+	println ">>> HERE"
+	println testProjectsDlls
 }
 
 def restoreProjects()
@@ -80,6 +82,7 @@ pipeline
 				script
 				{
 					setProjectsPaths()
+					setTestProjectsDllNames()
 				}
 			}
 		}
