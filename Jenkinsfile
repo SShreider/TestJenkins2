@@ -6,6 +6,7 @@ void setProjectsPaths()
 {
 	new File('.').eachFileRecurse(FILES) {
 		if(it.name.endsWith('.csproj')) {
+			println '>>>>>>> HERE'
 			println it
 			projectsPaths.add(it.name)
 		}
