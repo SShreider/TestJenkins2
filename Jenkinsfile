@@ -9,7 +9,10 @@ void setProjectsPaths()
 		println '>>>>>>> HERE'
 		println WORKSPACE
 		println it
+		projectsPaths.add(it)
 	}
+	println '>>>>>>> END'
+	println projectsPaths
 }
 
 pipeline {
