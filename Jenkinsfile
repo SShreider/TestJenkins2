@@ -24,11 +24,11 @@ def setTestProjectsDllNames()
 		def projContents = new XmlSlurper().parse(path)
 		if(projContents.Project.PropertyGroup.IsTestProject.isEmpty())
 		{
-			def dllName = path.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : path.name}
-			testProjectsDlls.add(dllName)
+			println ">>> HERE"
+			println path
 		}
 	}
-	println ">>> HERE"
+	println ">>> END"
 	println testProjectsDlls
 }
 
