@@ -1,6 +1,5 @@
 import static groovy.io.FileType.FILES
 
-@Field
 ArrayList projectsPaths = []
 
 void setProjectsPaths()
@@ -8,7 +7,7 @@ void setProjectsPaths()
 	new File('.').eachFileRecurse(FILES) {
 		if(it.name.endsWith('.csproj')) {
 			println it
-			this.projectsPaths.add(it.name)
+			projectsPaths.add(it.name)
 		}
 	}
 }
