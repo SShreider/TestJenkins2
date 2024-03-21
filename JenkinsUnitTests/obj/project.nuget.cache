@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dkSd32kI2X4o8mPAFjlTP8SGeVNAjeVqWHzHbktVphgeDEeOyNjXp0pnETx9awxMpNZIphP8KbgXqkuB42DDeg==",
+  "dgSpecHash": "jFkR8ZvLbuRaf66AShcCpBDNTWpw5GLh8smkDdTAODLNk7+5lEy8hqB/7gh1BGxGpo2dH05kdxYhkSCf44Ubew==",
   "success": true,
   "projectFilePath": "C:\\src\\test_async_app_for_it\\TestJenkins\\JenkinsUnitTests\\JenkinsUnitTests.csproj",
   "expectedPackageFiles": [
