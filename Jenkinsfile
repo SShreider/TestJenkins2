@@ -26,11 +26,11 @@ def setTestProjectsDllNames()
 		println projContents
 		if(projContents.PropertyGroup.IsTestProject.text() == "true")
 		{
-			def filename = path.name.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : path.name}
-			println filename
+			def filename = path.name.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : file.name}
 			testProjectsDlls.add(filename + ".dll")
 		}
 	}
+	println testProjectsDlls
 }
 
 def restoreProjects()
@@ -118,6 +118,13 @@ pipeline
 				}
             }
         }
+		stage('Archive binaries and logs')
+		{
+			steps
+			{
+				archiveArtifacts artifacts: '**/*.dll', followSymlinks: false
+			}
+		}
     }
 }
 
