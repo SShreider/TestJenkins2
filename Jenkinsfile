@@ -25,9 +25,9 @@ def setTestProjectsDllNames()
 		def projContents = new XmlSlurper().parse(path)
 		if(projContents.PropertyGroup.IsTestProject.text() == "true")
 		{
-			def filename = path.name.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : file.name}
-			def filePath = path.getAbsolutePath()
-			testProjectsDlls.add(filePath + '/bin/Release/net8/' + filename + '.dll')
+			def filename = path.name.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : path.name}
+			def filePath = path.getParent()
+			testProjectsDlls.add(filePath + '\\bin\\Release\\net8.0\\' + filename + '.dll')
 		}
 	}
 	println testProjectsDlls
