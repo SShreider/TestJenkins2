@@ -130,7 +130,7 @@ pipeline
 			steps
 			{
 				archiveArtifacts artifacts: '**/bin/Release/net8.0/*.dll', followSymlinks: false
-				stash uncludes: '**/bin/Release/net8.0/*.dll', name: 'tests_stash'
+				stash includes: '**/bin/Release/net8.0/*.dll', name: 'tests_stash'
 			}
 		}
 		stage('Run unit tests')
