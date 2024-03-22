@@ -23,13 +23,14 @@ def setTestProjectsDllNames()
 	for (path in projectsPaths)
 	{
 		def projContents = new XmlSlurper().parse(path)
-		println projContents
 		if(projContents.PropertyGroup.IsTestProject.text() == "true")
 		{
 			def filename = path.name.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : file.name}
-			testProjectsDlls.add(filename + '.dll')
+			def filePath = path.absolutePath()
+			testProjectsDlls.add(filePath + '/bin/Release/net8/' + filename + '.dll')
 		}
 	}
+	println testProjectsDlls
 }
 
 def restoreProjects()
@@ -130,14 +131,12 @@ pipeline
 			steps
 			{
 				archiveArtifacts artifacts: '**/bin/Release/net8.0/*.dll', followSymlinks: false
-				stash includes: '**/bin/Release/net8.0/*.dll', name: 'tests_stash'
 			}
 		}
 		stage('Run unit tests')
 		{
 			steps
 			{
-				unstash 'tests_stash'
 				script
 				{
 					runTests()
