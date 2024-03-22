@@ -60,7 +60,7 @@ def runTests()
 {	
 	for (dllName in testProjectsDlls)
 	{
-		bat 'dotnet tests ' + dllName 
+		bat 'dotnet test ' + dllName 
 	}
 }
 
