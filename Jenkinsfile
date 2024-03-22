@@ -122,7 +122,7 @@ pipeline
 		{
 			steps
 			{
-				archiveArtifacts artifacts: '**/*.dll', followSymlinks: false
+				archiveArtifacts artifacts: '**/bin/Release/net8.0/*.dll', followSymlinks: false
 			}
 		}
     }
