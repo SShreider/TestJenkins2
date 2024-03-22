@@ -26,7 +26,7 @@ def setTestProjectsDllNames()
 		if(projContents.PropertyGroup.IsTestProject.text() == "true")
 		{
 			def filename = path.name.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : file.name}
-			def filePath = path.absolutePath()
+			def filePath = path.getAbsolutePath()
 			testProjectsDlls.add(filePath + '/bin/Release/net8/' + filename + '.dll')
 		}
 	}
