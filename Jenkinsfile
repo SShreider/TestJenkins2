@@ -30,7 +30,6 @@ def setTestProjectsDllNames()
 			testProjectsDlls.add(filePath + '\\bin\\Release\\net8.0\\' + filename + '.dll')
 		}
 	}
-	println testProjectsDlls
 }
 
 def restoreProjects()
@@ -61,7 +60,7 @@ def runTests()
 {	
 	for (dllName in testProjectsDlls)
 	{
-		bat 'dotnet test ' + dllName 
+		bat 'dotnet test ' + dllName + ' --logger \"junit;LogFilePath=\"${WORKSPACE}\"/TestResults/results.xml\" --configuration release --collect \"Code coverage\"'
 	}
 }
 
