@@ -61,7 +61,7 @@ def runTests()
 	testProjectsDlls.eachWithIndex { dllName, index ->
 		bat 'dotnet test ' + dllName + ' --logger \"xunit;LogFilePath=' + WORKSPACE + '/TestResults/results.xml\" --configuration release --collect \"Code coverage\"'
 		powershell '''
-			$file = Get-ChildItem -Path \"$env:WORKSPACE/TestResults/results.coverage\"
+			$file = Get-ChildItem -Path \"$env:WORKSPACE/TestResults/results.xml\"
 			$file | Rename-Item -NewName testcoverage.coverage
 		'''
 	}
