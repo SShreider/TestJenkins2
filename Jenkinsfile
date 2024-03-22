@@ -60,7 +60,7 @@ def runTests()
 {	
 	for (dllName in testProjectsDlls)
 	{
-		bat 'dotnet test ' + dllName + ' --logger \"xunit;LogFilePath=\"${WORKSPACE}\"/TestResults/results.xml\" --configuration release --collect \"Code coverage\"'
+		bat 'dotnet test ' + dllName + ' --logger \"xunit;LogFilePath=' + WORKSPACE + '/TestResults/results.xml\" --configuration release --collect \"Code coverage\"'
 	}
 }
 
