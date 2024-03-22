@@ -27,17 +27,16 @@ def setTestProjectsDllNames()
 		if(projContents.PropertyGroup.IsTestProject.text() == "true")
 		{
 			def filename = path.name.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : file.name}
-			testProjectsDlls.add(filename + ".dll")
+			testProjectsDlls.add(filename + '.dll"'
 		}
 	}
-	println testProjectsDlls
 }
 
 def restoreProjects()
 {	
 	for (path in projectsPaths)
 	{
-		bat "nuget restore " + path 
+		bat 'nuget restore ' + path 
 	}
 }
 
@@ -45,7 +44,7 @@ def cleanProjects()
 {
 	for (path in projectsPaths)
 	{
-		bat "dotnet clean " + path + " /nologo /nr:false /p:configuration=\"release\" /t:clean"
+		bat 'dotnet clean ' + path + ' /nologo /nr:false /p:configuration=\"release\" /t:clean'
 	}
 }
 
@@ -53,7 +52,15 @@ def buildProjects()
 {
 	for (path in projectsPaths)
 	{
-		bat "dotnet build " + path + " /nologo /nr:false /p:configuration=\"release\" /t:clean;restore;rebuild"
+		bat 'dotnet build ' + path + ' /nologo /nr:false /p:configuration=\"release\" /t:clean;restore;rebuild'
+	}
+}
+
+def runTests()
+{	
+	for (dllName in testProjectsDlls)
+	{
+		bat 'dotnet tests ' + dllName 
 	}
 }
 
@@ -91,7 +98,7 @@ pipeline
 		{
 			steps 
 			{
-				bat "dotnet nuget locals all --clear"
+				bat 'dotnet nuget locals all --clear'
 				script
 				{
 					restoreProjects()
@@ -118,11 +125,23 @@ pipeline
 				}
             }
         }
-		stage('Archive binaries and logs')
+		stage('Archive binaries')
 		{
 			steps
 			{
 				archiveArtifacts artifacts: '**/bin/Release/net8.0/*.dll', followSymlinks: false
+				stash uncludes: '**/bin/Release/net8.0/*.dll', name: 'tests_stash'
+			}
+		}
+		stage('Run unit tests')
+		{
+			steps
+			{
+				unstash 'tests_stash'
+				script
+				{
+					runTests()
+				}
 			}
 		}
     }
