@@ -106,3 +106,6 @@ C:\src\test_async_app_for_it\TestJenkins\JenkinsUnitTests\obj\Release\net8.0\ref
 C:\src\test_async_app_for_it\TestJenkins\JenkinsUnitTests\obj\Release\net8.0\JenkinsUnitTests.pdb
 C:\src\test_async_app_for_it\TestJenkins\JenkinsUnitTests\obj\Release\net8.0\JenkinsUnitTests.genruntimeconfig.cache
 C:\src\test_async_app_for_it\TestJenkins\JenkinsUnitTests\obj\Release\net8.0\ref\JenkinsUnitTests.dll
+C:\src\test_async_app_for_it\TestJenkins\JenkinsUnitTests\bin\Release\net8.0\Microsoft.VisualStudio.TestPlatform.Extension.Xunit.Xml.TestLogger.dll
+C:\src\test_async_app_for_it\TestJenkins\JenkinsUnitTests\bin\Release\net8.0\Microsoft.VisualStudio.TestPlatform.Extension.Xunit.Xml.TestAdapter.dll
+C:\src\test_async_app_for_it\TestJenkins\JenkinsUnitTests\bin\Release\net8.0\Spekt.TestLogger.dll

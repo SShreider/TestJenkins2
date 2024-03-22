@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[17.6.0, )"
             },
+            "XunitXml.TestLogger": {
+              "target": "Package",
+              "version": "[3.1.20, )"
+            },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",

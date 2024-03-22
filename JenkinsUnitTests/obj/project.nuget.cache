@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jFkR8ZvLbuRaf66AShcCpBDNTWpw5GLh8smkDdTAODLNk7+5lEy8hqB/7gh1BGxGpo2dH05kdxYhkSCf44Ubew==",
+  "dgSpecHash": "GlAI76WQ2xsk743bKCj7xEVbeMXGhVXpRrzefAat+grN194ARkX1BVvavTAS60pLfia5aj2E69jG7DJDvZiTlw==",
   "success": true,
   "projectFilePath": "C:\\src\\test_async_app_for_it\\TestJenkins\\JenkinsUnitTests\\JenkinsUnitTests.csproj",
   "expectedPackageFiles": [
@@ -92,7 +92,8 @@
     "C:\\Users\\sshreider\\.nuget\\packages\\xunit.core\\2.4.2\\xunit.core.2.4.2.nupkg.sha512",
     "C:\\Users\\sshreider\\.nuget\\packages\\xunit.extensibility.core\\2.4.2\\xunit.extensibility.core.2.4.2.nupkg.sha512",
     "C:\\Users\\sshreider\\.nuget\\packages\\xunit.extensibility.execution\\2.4.2\\xunit.extensibility.execution.2.4.2.nupkg.sha512",
-    "C:\\Users\\sshreider\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.5\\xunit.runner.visualstudio.2.4.5.nupkg.sha512"
+    "C:\\Users\\sshreider\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.5\\xunit.runner.visualstudio.2.4.5.nupkg.sha512",
+    "C:\\Users\\sshreider\\.nuget\\packages\\xunitxml.testlogger\\3.1.20\\xunitxml.testlogger.3.1.20.nupkg.sha512"
   ],
   "logs": []
 }
