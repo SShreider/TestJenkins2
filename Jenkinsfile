@@ -1,5 +1,6 @@
 import static groovy.io.FileType.FILES
 import groovy.transform.Field
+import org.apache.commons.io.FilenameUtils
 
 @Field
 ArrayList projectsPaths = []
@@ -25,7 +26,7 @@ def setTestProjectsDllNames()
 		println projContents
 		if(projContents.PropertyGroup.IsTestProject.text() == "true")
 		{
-			def filename = path.replaceFirst(~/\.[^\.]+$/, '')
+			def filename = FilenameUtils.removeExtension(path)
 			println filename
 			testProjectsDlls.add(filename + ".dll")
 		}
