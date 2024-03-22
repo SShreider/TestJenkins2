@@ -27,7 +27,7 @@ def setTestProjectsDllNames()
 		if(projContents.PropertyGroup.IsTestProject.text() == "true")
 		{
 			def filename = path.name.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : file.name}
-			testProjectsDlls.add(filename + '.dll"'
+			testProjectsDlls.add(filename + '.dll')
 		}
 	}
 }
