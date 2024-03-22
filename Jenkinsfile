@@ -21,9 +21,9 @@ def setTestProjectsDllNames()
 {
 	for (path in projectsPaths)
 	{
-		def projContents = new XmlSlurper().parse(path)
+		def projContents = new XmlParser().parse(path)
 		println projContents
-		if(projContents.Project.PropertyGroup.IsTestProject)
+		if(projContents.PropertyGroup && projContents.PropertyGroup.IsTestProject && projContents.PropertyGroup.IsTestProject.text() == "true")
 		{
 			println ">>> HERE"
 			println path
