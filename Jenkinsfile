@@ -25,8 +25,9 @@ def setTestProjectsDllNames()
 		println projContents
 		if(projContents.PropertyGroup.IsTestProject.text() == "true")
 		{
-			println ">>> HERE"
-			println path
+			def filename = path.lastIndexOf('.').with {it != -1 ? path[0..<it] : path}
+			println filename
+			testProjectsDlls.add(filename + ".dll")
 		}
 	}
 }
