@@ -170,6 +170,13 @@ pipeline
 				}
             }
         }
+		stage('Archive binaries')
+		{
+			steps
+			{
+				archiveArtifacts artifacts: '**/bin/Release/net8.0/*.dll', followSymlinks: false
+			}
+		}
 		stage('Run unit tests')
 		{
 			steps
@@ -189,13 +196,6 @@ pipeline
 					publishProjects()
 					runCoverage()
 				}
-			}
-		}
-		stage('Store all binaries, logs and test results')
-		{
-			steps
-			{
-				archiveArtifacts artifacts: '**/bin/Release/net8.0/*.dll', followSymlinks: false
 			}
 		}
     }
