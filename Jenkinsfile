@@ -195,7 +195,7 @@ pipeline
 	post {
 		always {
 			archiveArtifacts artifacts: '**/*.dll', followSymlinks: false
-			xunit 'TestResults/tests_result.xml'
+			junit 'TestResults/tests_result.xml'
 		}
 	}
 }
