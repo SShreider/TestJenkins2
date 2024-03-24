@@ -190,7 +190,6 @@ pipeline
 			{
 				archiveArtifacts artifacts: '**/bin/Release/net8.0/*.dll', followSymlinks: false
 				archiveArtifacts artifacts: '**/bin/Release/net8.0/*.exe', followSymlinks: false
-				archiveArtifacts artifacts: '**/bin/Release/net8.0/*.log', followSymlinks: false
 			}
 		}
 		stage('Publish dlls and run coverage')
