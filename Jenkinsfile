@@ -202,7 +202,7 @@ pipeline
 	
 	post {
         always {
-            xunit 'TestResults/*.xml'
+			xunit (tools: [ XUnitDotNetTestType(pattern: 'TestResults/*.xml') ], skipPublishingChecks: false)
         }
     }
 }
