@@ -86,16 +86,6 @@ def runTests()
 {	
 	for (dllName in testProjectsDlls)
 	{
-		bat 'dotnet test ' + dllName + ' --logger \"xunit;LogFilePath=' + WORKSPACE + '/TestResults/1.0.0.' + BUILD_NUMBER + '/tests_result.xml\" --configuration release'
-		powershell '''
-			$file = Get-ChildItem -Path \"$env:WORKSPACE/TestResults/*/tests_result.xml\"
-			$destinationFolder = \"$env:WORKSPACE/TestResults\"
-			Copy-Item $file -Destination $destinationFolder
-		'''
-	}
-	
-	for (dllName in testProjectsDlls)
-	{
 		bat 'dotnet test ' + dllName + ' --logger \"trx;LogFilePath=' + WORKSPACE + '/TestResults/1.0.0.' + BUILD_NUMBER + '/tests_result_visualized.trx\" --configuration release'
 		powershell '''
 			$file = Get-ChildItem -Path \"$env:WORKSPACE/TestResults/*/tests_result_visualized.trx\"
