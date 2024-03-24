@@ -207,17 +207,14 @@ pipeline
 			{
 				always 
 				{
-					step
-					{
-						script {
-							def failed = publishCoverage(failUnhealthy: true, globalThresholds: [[thresholdTarget: 'Package', unhealthyThreshold: 50.0]],
-										adapters: [coberturaAdapter(mergeToOneReport: true, path: 'TestResults/coverage.cobertura.xml')])
-							if (failed) 
-							{
-								currentBuild.result = 'FAILURE'
-								currentBuild.displayName = "${currentBuild.displayName} Coverage"
-								currentBuild.description = "Coverage lower than 50%"
-							}
+					script {
+						def failed = publishCoverage(failUnhealthy: true, globalThresholds: [[thresholdTarget: 'Package', unhealthyThreshold: 50.0]],
+									adapters: [coberturaAdapter(mergeToOneReport: true, path: 'TestResults/coverage.cobertura.xml')])
+						if (failed) 
+						{
+							currentBuild.result = 'FAILURE'
+							currentBuild.displayName = "${currentBuild.displayName} Coverage"
+							currentBuild.description = "Coverage lower than 50%"
 						}
 					}
 				}
