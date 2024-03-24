@@ -202,7 +202,7 @@ pipeline
 	
 	post {
         always {
-			xunit (tools: [ MSTest(pattern: 'TestResults/*.xml') ], skipPublishingChecks: false)
+			xunit (tools: [ MSTest(pattern: 'TestResults/tests_result.xml') ], skipPublishingChecks: false)
         }
     }
 }
