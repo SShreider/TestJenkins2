@@ -170,13 +170,6 @@ pipeline
 				}
             }
         }
-		stage('Archive binaries')
-		{
-			steps
-			{
-				archiveArtifacts artifacts: '**/bin/Release/net8.0/*.dll', followSymlinks: false
-			}
-		}
 		stage('Run unit tests')
 		{
 			steps
@@ -187,7 +180,7 @@ pipeline
 				}
 			}
 		}
-		stage('Publish Dlls and run coverage')
+		stage('Publish dlls and run coverage')
 		{
 			steps
 			{
@@ -196,6 +189,12 @@ pipeline
 					publishProjects()
 					runCoverage()
 				}
+			}
+		}
+		post {
+			always {
+				archiveArtifacts artifacts: '**/bin/Release/net8.0/*.dll', followSymlinks: false
+				xunit "TestResults/1.0.0.${env.BUILD_NUMBER}/tests_result.xml"
 			}
 		}
     }
