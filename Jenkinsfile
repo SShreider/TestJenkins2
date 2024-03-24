@@ -1,28 +1,30 @@
 import static groovy.io.FileType.FILES
 import groovy.transform.Field
 import org.apache.commons.io.FilenameUtils
-
+ 
 @Field
 ArrayList projectsPaths = []
 
 @Field
 ArrayList testProjectsDlls = []
-
+ 
 @Field
 ArrayList testProjectsPublishedDlls = []
-
+ 
 @NonCPS
 def setProjectsPaths()
 {	
 	def filterProjFiles = ~/.*\.csproj$/
+
 	new File(WORKSPACE).traverse(type: groovy.io.FileType.FILES, nameFilter: filterProjFiles) { it ->
 		projectsPaths.add(it)
 	}
 }
-
+ 
 @NonCPS
 def setTestProjectsDllNames()
 {
+
 	for (path in projectsPaths)
 	{
 		def projContents = new XmlSlurper().parse(path)
@@ -30,11 +32,12 @@ def setTestProjectsDllNames()
 		{
 			def filename = path.name.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : path.name}
 			def filePath = path.getParent()
+
 			testProjectsDlls.add(filePath + '\\bin\\Release\\net8.0\\' + filename + '.dll')
 		}
 	}
 }
-
+ 
 @NonCPS
 def setTestProjectsPublishedDllNames()
 {
@@ -45,19 +48,21 @@ def setTestProjectsPublishedDllNames()
 		{
 			def filename = path.name.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : path.name}
 			def filePath = path.getParent()
+
 			testProjectsPublishedDlls.add(filePath + '\\bin\\Release\\net8.0\\publish\\' + filename + '.dll')
 		}
 	}
 }
-
+ 
 def restoreProjects()
 {	
+
 	for (path in projectsPaths)
 	{
 		bat 'nuget restore ' + path 
 	}
 }
-
+ 
 def cleanProjects()
 {
 	for (path in projectsPaths)
@@ -65,7 +70,7 @@ def cleanProjects()
 		bat 'dotnet clean ' + path + ' /nologo /nr:false /p:configuration=\"release\" /t:clean'
 	}
 }
-
+ 
 def buildProjects()
 {
 	for (path in projectsPaths)
@@ -73,7 +78,7 @@ def buildProjects()
 		bat 'dotnet build ' + path + ' /nologo /nr:false /p:configuration=\"release\" /t:clean;restore;rebuild'
 	}
 }
-
+ 
 def publishProjects()
 {
 	for (path in projectsPaths)
@@ -81,20 +86,20 @@ def publishProjects()
 		bat 'dotnet publish ' + path + ' /nologo /nr:false /p:configuration=\"release\" /t:clean;restore;rebuild'
 	}
 }
-
+ 
 def runTests()
 {	
 	for (dllName in testProjectsDlls)
 	{
-		bat 'dotnet test ' + dllName + ' --logger \"trx;LogFilePath=' + WORKSPACE + '/TestResults/1.0.0.' + BUILD_NUMBER + '/tests_result_visualized.trx\" --configuration release'
+		bat 'dotnet test ' + dllName + ' --logger \"xunit;LogFilePath=' + WORKSPACE + '/TestResults/1.0.0.' + BUILD_NUMBER + '/tests_result.xml\" --configuration release'
 		powershell '''
-			$file = Get-ChildItem -Path \"$env:WORKSPACE/TestResults/*/tests_result_visualized.trx\"
+			$file = Get-ChildItem -Path \"$env:WORKSPACE/TestResults/*/tests_result.xml\"
 			$destinationFolder = \"$env:WORKSPACE/TestResults\"
 			Copy-Item $file -Destination $destinationFolder
 		'''
 	}
 }
-
+ 
 def runCoverage()
 {	
 	for (dllName in testProjectsPublishedDlls)
@@ -107,11 +112,10 @@ def runCoverage()
 		'''
 	}
 }
-
+ 
 pipeline 
 {
     agent any
-
     stages {
         stage ('Clean workspace') 
 		{
@@ -199,11 +203,9 @@ pipeline
 			}
 		}
     }
-	
 	post {
         always {
-			xunit (tools: [ MSTest(pattern: 'TestResults/tests_result_visualized.trx') ], skipPublishingChecks: false)
+			xunit (tools: [ MSTest(pattern: 'TestResults/tests_result.xml') ], skipPublishingChecks: false)
         }
     }
 }
-
