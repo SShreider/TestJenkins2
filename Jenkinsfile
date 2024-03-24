@@ -189,6 +189,8 @@ pipeline
 			steps
 			{
 				archiveArtifacts artifacts: '**/bin/Release/net8.0/*.dll', followSymlinks: false
+				archiveArtifacts artifacts: '**/bin/Release/net8.0/*.exe', followSymlinks: false
+				archiveArtifacts artifacts: '**/bin/Release/net8.0/*.log', followSymlinks: false
 			}
 		}
 		stage('Publish dlls and run coverage')
@@ -199,6 +201,25 @@ pipeline
 				{
 					publishProjects()
 					runCoverage()
+				}
+			}
+			post 
+			{
+				always 
+				{
+					step
+					{
+						script {
+							def failed = publishCoverage(failUnhealthy: true, globalThresholds: [[thresholdTarget: 'Package', unhealthyThreshold: 50.0]],
+										adapters: [coberturaAdapter(mergeToOneReport: true, path: 'TestResults/coverage.cobertura.xml')])
+							if (failed) 
+							{
+								currentBuild.result = 'FAILURE'
+								currentBuild.displayName = "${currentBuild.displayName} Coverage"
+								currentBuild.description = "Coverage lower than 50%"
+							}
+						}
+					}
 				}
 			}
 		}
