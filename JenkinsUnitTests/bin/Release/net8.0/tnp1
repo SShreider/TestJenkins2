@@ -1,0 +1,10 @@
+Microsoft (R) Test Execution Command Line Tool Version 17.8.0 (x64)
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:     4, Skipped:     0, Total:     4, Duration: 7 ms - JenkinsUnitTests.dll (net8.0)
+
+Attachments:
+  C:\src\test_async_app_for_it\TestJenkins\JenkinsUnitTests\bin\Release\net8.0\TestResults\f0173223-0a43-42cd-a937-43d205fdbafe\coverage.cobertura.xml

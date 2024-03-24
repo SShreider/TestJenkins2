@@ -8,6 +8,9 @@ ArrayList projectsPaths = []
 @Field
 ArrayList testProjectsDlls = []
 
+@Field
+ArrayList testProjectsPublishedDlls = []
+
 @NonCPS
 def setProjectsPaths()
 {	
@@ -28,6 +31,21 @@ def setTestProjectsDllNames()
 			def filename = path.name.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : path.name}
 			def filePath = path.getParent()
 			testProjectsDlls.add(filePath + '\\bin\\Release\\net8.0\\' + filename + '.dll')
+		}
+	}
+}
+
+@NonCPS
+def setTestProjectsPublishedDllNames()
+{
+	for (path in projectsPaths)
+	{
+		def projContents = new XmlSlurper().parse(path)
+		if(projContents.PropertyGroup.IsTestProject.text() == "true")
+		{
+			def filename = path.name.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : path.name}
+			def filePath = path.getParent()
+			testProjectsPublishedDlls.add(filePath + '\\bin\\Release\\net8.0\\publish\\' + filename + '.dll')
 		}
 	}
 }
@@ -56,13 +74,36 @@ def buildProjects()
 	}
 }
 
+def publishProjects()
+{
+	for (path in projectsPaths)
+	{
+		bat 'dotnet publish ' + path + ' /nologo /nr:false /p:configuration=\"release\" /t:clean;restore;rebuild'
+	}
+}
+
 def runTests()
 {	
-	testProjectsDlls.eachWithIndex { dllName, index ->
-		bat 'dotnet test ' + dllName + ' --logger \"xunit;LogFilePath=' + WORKSPACE + '/TestResults/1.0.0.' + BUILD_NUMBER + '/coverage.cobertura.xml\" --configuration release --collect \"XPlat Code Coverage\"'
+	for (dllName in testProjectsDlls)
+	{
+		bat 'dotnet test ' + dllName + ' --logger \"xunit;LogFilePath=' + WORKSPACE + '/TestResults/1.0.0.' + BUILD_NUMBER + '/tests_result.xml\" --configuration release'
 		powershell '''
-			$file = Get-ChildItem -Path \"$env:WORKSPACE/TestResults/*/results.xml\"
-			$file | Rename-Item -NewName testcoverage.coverage
+			$file = Get-ChildItem -Path \"$env:WORKSPACE/TestResults/*/tests_result.xml\"
+			$destinationFolder = \"$env:WORKSPACE/TestResults\"
+			Copy-Item $file -Destination $destinationFolder
+		'''
+	}
+}
+
+def runCoverage()
+{	
+	for (dllName in testProjectsPublishedDlls)
+	{
+		bat 'dotnet test ' + dllName + ' --collect \"XPlat Code Coverage\" --results-directory ' + WORKSPACE + '/coverage_tmp'
+		powershell '''
+			$file = Get-ChildItem -Path \"$env:WORKSPACE/coverage_tmp/*/coverage.cobertura.xml\"
+			$destinationFolder = \"$env:WORKSPACE/TestResults\"
+			Copy-Item $file -Destination $destinationFolder
 		'''
 	}
 }
@@ -94,6 +135,7 @@ pipeline
 				{
 					setProjectsPaths()
 					setTestProjectsDllNames()
+					setTestProjectsPublishedDllNames()
 				}
 			}
 		}
@@ -142,6 +184,17 @@ pipeline
 				script
 				{
 					runTests()
+				}
+			}
+		}
+		stage('Publish Dlls and run coverage')
+		{
+			steps
+			{
+				script
+				{
+					publishProjects()
+					runCoverage()
 				}
 			}
 		}
