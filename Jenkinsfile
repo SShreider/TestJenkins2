@@ -194,8 +194,8 @@ pipeline
     }
 	post {
 		always {
-			archiveArtifacts artifacts: '${env.WORKSPACE}/**/bin/Release/net8.0/*.dll', followSymlinks: false
-			xunit "TestResults/1.0.0.${env.BUILD_NUMBER}/tests_result.xml"
+			archiveArtifacts artifacts: '**/*.dll', followSymlinks: false
+			xunit 'TestResults/tests_result.xml'
 		}
 	}
 }
