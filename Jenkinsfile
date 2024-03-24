@@ -91,9 +91,9 @@ def runTests()
 {	
 	for (dllName in testProjectsDlls)
 	{
-		bat 'dotnet test ' + dllName + ' --logger \"xunit;LogFilePath=' + WORKSPACE + '/TestResults/1.0.0.' + BUILD_NUMBER + '/tests_result.xml\" --configuration release'
+		bat 'dotnet test ' + dllName + ' --logger \"trx;LogFileName=' + WORKSPACE + '/TestResults/1.0.0.' + BUILD_NUMBER + '/tests_result.trx\" --configuration release'
 		powershell '''
-			$file = Get-ChildItem -Path \"$env:WORKSPACE/TestResults/*/tests_result.xml\"
+			$file = Get-ChildItem -Path \"$env:WORKSPACE/TestResults/*/tests_result.trx\"
 			$destinationFolder = \"$env:WORKSPACE/TestResults\"
 			Copy-Item $file -Destination $destinationFolder
 		'''
@@ -205,7 +205,7 @@ pipeline
     }
 	post {
         always {
-			xunit (tools: [ MSTest(pattern: 'TestResults/tests_result.xml') ], skipPublishingChecks: false)
+			xunit (tools: [ MSTest(pattern: 'TestResults/tests_result.trx') ], skipPublishingChecks: false)
         }
     }
 }
