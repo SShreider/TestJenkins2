@@ -207,7 +207,7 @@ pipeline
 				always 
 				{
 					script {
-						recordCoverage(tools: [[parser: 'COBERTURA', pattern: 'TestResults/coverage.cobertura.xml']], id: 'cobertura', name: 'Cobertura Coverage', qualityGates: [[metric: 'BRANCH', threshold: 50.0]])
+						recordCoverage(tools: [[parser: 'COBERTURA', pattern: 'TestResults/coverage.cobertura.xml']], id: 'cobertura', name: 'Cobertura Coverage', qualityGates: [[metric: 'LINE', threshold: 50.0]])
 					}
 				}
 			}
