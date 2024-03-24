@@ -191,12 +191,15 @@ pipeline
 				}
 			}
 		}
-    }
-	post {
-		always {
-			archiveArtifacts artifacts: '**/*.dll', followSymlinks: false
-			junit 'TestResults/tests_result.xml'
+		stage('Store all binaries, logs and test results')
+		{
+			steps
+			{
+				post {
+						archiveArtifacts artifacts: '**/bin/Release/net8.0/*.dll', followSymlinks: false
+				}
+			}
 		}
-	}
+    }
 }
 
