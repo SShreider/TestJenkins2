@@ -193,10 +193,13 @@ pipeline
 		}
 		stage('Store all binaries, logs and test results')
 		{
-			post {
-				always {
-					archiveArtifacts artifacts: '**/bin/Release/net8.0/*.dll', followSymlinks: false
-					xunit "TestResults/1.0.0.${env.BUILD_NUMBER}/tests_result.xml"
+			steps
+			{
+				post {
+					always {
+						archiveArtifacts artifacts: '**/bin/Release/net8.0/*.dll', followSymlinks: false
+						xunit "TestResults/1.0.0.${env.BUILD_NUMBER}/tests_result.xml"
+					}
 				}
 			}
 		}
