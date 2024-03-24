@@ -93,6 +93,16 @@ def runTests()
 			Copy-Item $file -Destination $destinationFolder
 		'''
 	}
+	
+	for (dllName in testProjectsDlls)
+	{
+		bat 'dotnet test ' + dllName + ' --logger \"trx;LogFilePath=' + WORKSPACE + '/TestResults/1.0.0.' + BUILD_NUMBER + '/tests_result_visualized.trx\" --configuration release'
+		powershell '''
+			$file = Get-ChildItem -Path \"$env:WORKSPACE/TestResults/*/tests_result_visualized.trx\"
+			$destinationFolder = \"$env:WORKSPACE/TestResults\"
+			Copy-Item $file -Destination $destinationFolder
+		'''
+	}
 }
 
 def runCoverage()
@@ -202,7 +212,7 @@ pipeline
 	
 	post {
         always {
-			xunit (tools: [ MSTest(pattern: 'TestResults/tests_result.xml') ], skipPublishingChecks: false)
+			xunit (tools: [ MSTest(pattern: 'TestResults/tests_result_visualized.trx') ], skipPublishingChecks: false)
         }
     }
 }
