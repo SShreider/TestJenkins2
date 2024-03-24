@@ -202,7 +202,7 @@ pipeline
 	
 	post {
         always {
-            junit 'TestResults/*.xml'
+            xunit 'TestResults/*.xml'
         }
     }
 }
