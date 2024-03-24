@@ -1,17 +1,17 @@
-<assemblies timestamp="03/22/2024 17:43:41">
-  <assembly name="C:\src\test_async_app_for_it\TestJenkins\JenkinsUnitTests\bin\Release\net8.0\JenkinsUnitTests.dll" run-date="2024-03-22" run-time="17:43:41" total="4" passed="4" failed="0" skipped="0" time="0.850" errors="0">
+<assemblies timestamp="03/22/2024 19:35:40">
+  <assembly name="C:\src\test_async_app_for_it\TestJenkins\JenkinsUnitTests\bin\Release\net8.0\JenkinsUnitTests.dll" run-date="2024-03-22" run-time="19:35:40" total="4" passed="4" failed="0" skipped="0" time="2.135" errors="0">
     <errors />
-    <collection total="4" passed="4" failed="0" skipped="0" name="Test collection for JenkinsUnitTests.UnitTest1" time="0.002">
-      <test name="JenkinsUnitTests.UnitTest1.Substraction(x: 2, y: 7, result: -5)" type="JenkinsUnitTests.UnitTest1" method="Substraction(x: 2, y: 7, result: -5)" time="0.0022750" result="Pass">
+    <collection total="4" passed="4" failed="0" skipped="0" name="Test collection for JenkinsUnitTests.UnitTest1" time="0.003">
+      <test name="JenkinsUnitTests.UnitTest1.Substraction(x: 2, y: 7, result: -5)" type="JenkinsUnitTests.UnitTest1" method="Substraction(x: 2, y: 7, result: -5)" time="0.0023490" result="Pass">
         <traits />
       </test>
-      <test name="JenkinsUnitTests.UnitTest1.Addition(x: 1, y: 2, result: 3)" type="JenkinsUnitTests.UnitTest1" method="Addition(x: 1, y: 2, result: 3)" time="0.0000705" result="Pass">
+      <test name="JenkinsUnitTests.UnitTest1.Addition(x: 1, y: 2, result: 3)" type="JenkinsUnitTests.UnitTest1" method="Addition(x: 1, y: 2, result: 3)" time="0.0000966" result="Pass">
         <traits />
       </test>
-      <test name="JenkinsUnitTests.UnitTest1.Multiplication(x: 2, y: 7, result: 14)" type="JenkinsUnitTests.UnitTest1" method="Multiplication(x: 2, y: 7, result: 14)" time="0.0000538" result="Pass">
+      <test name="JenkinsUnitTests.UnitTest1.Multiplication(x: 2, y: 7, result: 14)" type="JenkinsUnitTests.UnitTest1" method="Multiplication(x: 2, y: 7, result: 14)" time="0.0001081" result="Pass">
         <traits />
       </test>
-      <test name="JenkinsUnitTests.UnitTest1.Division(x: 1, y: 7, result: 0)" type="JenkinsUnitTests.UnitTest1" method="Division(x: 1, y: 7, result: 0)" time="0.0000522" result="Pass">
+      <test name="JenkinsUnitTests.UnitTest1.Division(x: 1, y: 7, result: 0)" type="JenkinsUnitTests.UnitTest1" method="Division(x: 1, y: 7, result: 0)" time="0.0000527" result="Pass">
         <traits />
       </test>
     </collection>

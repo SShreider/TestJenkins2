@@ -59,9 +59,9 @@ def buildProjects()
 def runTests()
 {	
 	testProjectsDlls.eachWithIndex { dllName, index ->
-		bat 'dotnet test ' + dllName + ' --logger \"xunit;LogFilePath=' + WORKSPACE + '/TestResults/results.xml\" --configuration release --collect \"Code coverage\"'
+		bat 'dotnet test ' + dllName + ' --logger \"xunit;LogFilePath=' + WORKSPACE + '/TestResults/1.0.0.\"${env.BUILD_NUMBER}\"/\" --configuration release --collect \"XPlat Code Coverage\"'
 		powershell '''
-			$file = Get-ChildItem -Path \"$env:WORKSPACE/TestResults/results.xml\"
+			$file = Get-ChildItem -Path \"$env:WORKSPACE/TestResults/*/results.xml\"
 			$file | Rename-Item -NewName testcoverage.coverage
 		'''
 	}
