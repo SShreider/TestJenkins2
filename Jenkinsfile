@@ -209,6 +209,7 @@ pipeline
 					script {
 						def failed = publishCoverage(failUnhealthy: true, globalThresholds: [[thresholdTarget: 'Package', unhealthyThreshold: 50.0]],
 									adapters: [coberturaAdapter(mergeToOneReport: true, path: 'TestResults/coverage.cobertura.xml')])
+						println " >>> HERE=" + failed
 						if (failed) 
 						{
 							currentBuild.result = 'FAILURE'
