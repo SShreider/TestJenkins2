@@ -1,4 +1,3 @@
-import static groovy.io.FileType.FILES
 import groovy.transform.Field
 import org.apache.commons.io.FilenameUtils
  
@@ -14,22 +13,15 @@ ArrayList projectsPaths = []
 @Field
 ArrayList testProjectsDlls = []
  
-@NonCPS
 def setProjectsPaths()
 {	
-    def  FILES_LIST = sh (script: "ls   '${WORKSPACE}'", returnStdout: true).trim()
-    //DEBUG
-    echo "FILES_LIST : ${FILES_LIST}"
-    //PARSING
-    for(String ele : FILES_LIST.split("\\r?\\n"))
-    { 
-       println ">>>${ele}<<<"     
-    }
-	def filterProjFiles = ~/.*\.csproj$/
+    def files = findFiles(glob: '**/*.csproj')
 
-	new File(WORKSPACE).traverse(type: groovy.io.FileType.FILES, nameFilter: filterProjFiles) { it ->
-		projectsPaths.add(it)
+    for (fileName in files
+	{
+        projectsPaths.add(fileName)
 	}
+    println projectsPaths
 }
  
 @NonCPS
