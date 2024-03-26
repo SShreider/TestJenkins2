@@ -30,7 +30,7 @@ def setTestProjectsDllNames()
 {
 	for (path in projectsPaths)
 	{
-		def projContents = new XmlSlurper().parse(path)
+		def projContents = new XmlSlurper().parse(path.path)
 		if(projContents.PropertyGroup.IsTestProject.text() == "true")
 		{
 			def filename = path.name.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : path.name}
