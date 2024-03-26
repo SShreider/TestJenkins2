@@ -21,24 +21,23 @@ def setProjectsPaths()
 	{
         projectsPaths.add(fileName)
 	}
-    println 'HERE >>>>>>>>>'
-    println projectsPaths
 }
  
-@NonCPS
 def setTestProjectsDllNames()
 {
 	for (path in projectsPaths)
 	{
-		def projContents = new XmlSlurper().parse(path.path)
-		if(projContents.PropertyGroup.IsTestProject.text() == "true")
+        def projectName = path.name
+		if(projectName.indexOf('.Test.') > -1)
 		{
-			def filename = path.name.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : path.name}
-			def filePath = path.getParent()
+			def fileName = fileName.lastIndexOf('.').with {it != -1 ? fileName[0..<it] : fileName}
+			def filePath = path.directory
 
-			testProjectsDlls.add(filePath + '\\bin\\Release\\net8.0\\' + filename + '.dll')
+			testProjectsDlls.add(filePath + '\\bin\\Release\\net8.0\\' + fileName + '.dll')
 		}
 	}
+    println "HERE >>>>>>>>>"
+    println testProjectsDlls
 }
  
 def restoreProjects()
