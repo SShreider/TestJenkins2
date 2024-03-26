@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="af8342d1-5e91-4c17-998f-f5bdbf0171ca" name="sshreider@UKD032 2024-03-26 11:44:57" runUser="SOTI\sshreider" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2024-03-26T11:44:57.0354733-04:00" queuing="2024-03-26T11:44:57.0354735-04:00" start="2024-03-26T11:44:55.3749913-04:00" finish="2024-03-26T11:44:57.0463909-04:00" />
+  <TestSettings name="default" id="a62ea822-96dc-4609-9046-a7a5f4cb1855">
+    <Deployment runDeploymentRoot="sshreider_UKD032_2024-03-26_11_44_57" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="cd750899-86de-45f0-9a16-f2b858b1f2a3" testId="6ea3b85d-5b69-cebf-287b-c242e93a5d44" testName="JenkinsUnitTests.UnitTest1.Addition(x: 1, y: 2, result: 3)" computerName="UKD032" duration="00:00:00.0000683" startTime="2024-03-26T11:44:56.8941136-04:00" endTime="2024-03-26T11:44:56.8941137-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cd750899-86de-45f0-9a16-f2b858b1f2a3" />
+    <UnitTestResult executionId="de6a44a7-0a61-4df4-9119-21b7c7fb5b0d" testId="483aa94b-3793-d223-03b1-34492d663546" testName="JenkinsUnitTests.UnitTest1.Division(x: 1, y: 7, result: 0)" computerName="UKD032" duration="00:00:00.0000524" startTime="2024-03-26T11:44:56.8948935-04:00" endTime="2024-03-26T11:44:56.8948935-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="de6a44a7-0a61-4df4-9119-21b7c7fb5b0d" />
+    <UnitTestResult executionId="7858b692-37ea-4406-bbd3-c070e8e67f7d" testId="22c79bfc-6beb-0e15-5795-417574d6fac0" testName="JenkinsUnitTests.UnitTest1.Substraction(x: 2, y: 7, result: -5)" computerName="UKD032" duration="00:00:00.0026046" startTime="2024-03-26T11:44:56.8894084-04:00" endTime="2024-03-26T11:44:56.8894245-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7858b692-37ea-4406-bbd3-c070e8e67f7d" />
+    <UnitTestResult executionId="ce330a57-8cd2-46ac-b1de-047e2b7d6c32" testId="ea20ef30-0174-a834-dc30-5e23270e7243" testName="JenkinsUnitTests.UnitTest1.Multiplication(x: 2, y: 7, result: 14)" computerName="UKD032" duration="00:00:00.0000615" startTime="2024-03-26T11:44:56.8947035-04:00" endTime="2024-03-26T11:44:56.8947036-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ce330a57-8cd2-46ac-b1de-047e2b7d6c32" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="JenkinsUnitTests.UnitTest1.Multiplication(x: 2, y: 7, result: 14)" storage="c:\src\test_async_app_for_it\testjenkins\jenkinsunittests\bin\release\net8.0\jenkinsunittests.dll" id="ea20ef30-0174-a834-dc30-5e23270e7243">
+      <Execution id="ce330a57-8cd2-46ac-b1de-047e2b7d6c32" />
+      <TestMethod codeBase="C:\src\test_async_app_for_it\TestJenkins\JenkinsUnitTests\bin\Release\net8.0\JenkinsUnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="JenkinsUnitTests.UnitTest1" name="Multiplication" />
+    </UnitTest>
+    <UnitTest name="JenkinsUnitTests.UnitTest1.Addition(x: 1, y: 2, result: 3)" storage="c:\src\test_async_app_for_it\testjenkins\jenkinsunittests\bin\release\net8.0\jenkinsunittests.dll" id="6ea3b85d-5b69-cebf-287b-c242e93a5d44">
+      <Execution id="cd750899-86de-45f0-9a16-f2b858b1f2a3" />
+      <TestMethod codeBase="C:\src\test_async_app_for_it\TestJenkins\JenkinsUnitTests\bin\Release\net8.0\JenkinsUnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="JenkinsUnitTests.UnitTest1" name="Addition" />
+    </UnitTest>
+    <UnitTest name="JenkinsUnitTests.UnitTest1.Substraction(x: 2, y: 7, result: -5)" storage="c:\src\test_async_app_for_it\testjenkins\jenkinsunittests\bin\release\net8.0\jenkinsunittests.dll" id="22c79bfc-6beb-0e15-5795-417574d6fac0">
+      <Execution id="7858b692-37ea-4406-bbd3-c070e8e67f7d" />
+      <TestMethod codeBase="C:\src\test_async_app_for_it\TestJenkins\JenkinsUnitTests\bin\Release\net8.0\JenkinsUnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="JenkinsUnitTests.UnitTest1" name="Substraction" />
+    </UnitTest>
+    <UnitTest name="JenkinsUnitTests.UnitTest1.Division(x: 1, y: 7, result: 0)" storage="c:\src\test_async_app_for_it\testjenkins\jenkinsunittests\bin\release\net8.0\jenkinsunittests.dll" id="483aa94b-3793-d223-03b1-34492d663546">
+      <Execution id="de6a44a7-0a61-4df4-9119-21b7c7fb5b0d" />
+      <TestMethod codeBase="C:\src\test_async_app_for_it\TestJenkins\JenkinsUnitTests\bin\Release\net8.0\JenkinsUnitTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="JenkinsUnitTests.UnitTest1" name="Division" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="6ea3b85d-5b69-cebf-287b-c242e93a5d44" executionId="cd750899-86de-45f0-9a16-f2b858b1f2a3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="483aa94b-3793-d223-03b1-34492d663546" executionId="de6a44a7-0a61-4df4-9119-21b7c7fb5b0d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="22c79bfc-6beb-0e15-5795-417574d6fac0" executionId="7858b692-37ea-4406-bbd3-c070e8e67f7d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ea20ef30-0174-a834-dc30-5e23270e7243" executionId="ce330a57-8cd2-46ac-b1de-047e2b7d6c32" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="4" executed="4" passed="4" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.4.5+1caef2f33e (64-bit .NET 8.0.3)&#xD;
+[xUnit.net 00:00:00.41]   Discovering: JenkinsUnitTests&#xD;
+[xUnit.net 00:00:00.44]   Discovered:  JenkinsUnitTests&#xD;
+[xUnit.net 00:00:00.44]   Starting:    JenkinsUnitTests&#xD;
+[xUnit.net 00:00:00.48]   Finished:    JenkinsUnitTests&#xD;
+</StdOut>
+    </Output>
+    <CollectorDataEntries>
+      <Collector agentName="UKD032" uri="datacollector://microsoft/CoverletCodeCoverage/1.0" collectorDisplayName="XPlat code coverage">
+        <UriAttachments>
+          <UriAttachment>
+            <A href="UKD032\coverage.cobertura.xml"></A>
+          </UriAttachment>
+        </UriAttachments>
+      </Collector>
+    </CollectorDataEntries>
+  </ResultSummary>
+</TestRun>

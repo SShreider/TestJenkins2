@@ -104,7 +104,7 @@ def runCoverage()
 {	
 	for (dllName in testProjectsPublishedDlls)
 	{
-		bat 'dotnet test ' + dllName + ' --collect \"XPlat Code Coverage\" --results-directory ' + WORKSPACE + '/coverage_tmp'
+		bat 'dotnet test ' + dllName + ' --framework net8.0 --no-build --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage_tmp'
 		powershell '''
 			$file = Get-ChildItem -Path \"$env:WORKSPACE/coverage_tmp/*/coverage.cobertura.xml\"
 			$destinationFolder = \"$env:WORKSPACE/TestResults\"
@@ -198,7 +198,6 @@ pipeline
 			{
 				script
 				{
-					publishProjects()
 					runCoverage()
 				}
 			}
