@@ -30,7 +30,7 @@ def setTestProjectsDllNames()
         def projectName = path.name
 		if(projectName.indexOf('.Test.') > -1)
 		{
-			def fileName = fileName.lastIndexOf('.').with {it != -1 ? fileName[0..<it] : fileName}
+			def fileName = fileName.lastIndexOf('.').with {it != -1 ? projectName[0..<it] : projectName}
 			def filePath = path.directory
 
 			testProjectsDlls.add(filePath + '\\bin\\Release\\net8.0\\' + fileName + '.dll')
