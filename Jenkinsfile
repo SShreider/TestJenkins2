@@ -21,6 +21,7 @@ def setProjectsPaths()
 	{
         projectsPaths.add(fileName)
 	}
+    println 'HERE >>>>>>>>>'
     println projectsPaths
 }
  
