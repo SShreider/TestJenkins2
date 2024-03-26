@@ -21,7 +21,6 @@ def setProjectsPaths()
 @NonCPS
 def setTestProjectsDllNames()
 {
-
 	for (path in projectsPaths)
 	{
 		def projContents = new XmlSlurper().parse(path)
@@ -101,7 +100,7 @@ pipeline
 		{
             steps 
 			{
-                git branch: 'main', credentialsId: 'f7e62595-1e4d-4a35-8b56-062b1076e919', url: 'https://github.com/SShreider/TestJenkins2.git'
+                git branch: 'master', credentialsId: 'f7e62595-1e4d-4a35-8b56-062b1076e919', url: 'https://ghe.soti.net/MobiControl/Soti.MobiControl.AiServices.git'
             }
         }
 		stage ('Get projects to build') 
