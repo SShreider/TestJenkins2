@@ -3,7 +3,7 @@ import groovy.transform.Field
 import org.apache.commons.io.FilenameUtils
  
 @Field
-final String GitRepo = 'https://github.com/SShreider/TestJenkins2.git'
+final String GitRepo = 'https://github.com/SShreider/TestJenkins2'
 
 @Field
 final String GitRepoCredentials = 'f7e62595-1e4d-4a35-8b56-062b1076e919'
