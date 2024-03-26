@@ -1,4 +1,4 @@
-import static groovy.io.FileType.FILES
+import groovy.io.FileType.FILES
 import groovy.transform.Field
 import org.apache.commons.io.FilenameUtils
  
