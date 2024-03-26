@@ -75,7 +75,7 @@ def runTests()
  
 def runCoverage()
 {	
-	for (dllName in testProjectsPublishedDlls)
+	for (dllName in testProjectsDlls)
 	{
 		bat 'dotnet test ' + dllName + ' --framework net8.0 --no-build --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage_tmp'
 		powershell '''
