@@ -17,7 +17,7 @@ def setProjectsPaths()
 {	
     def files = findFiles(glob: '**/*.csproj')
 
-    for (fileName in files
+    for (fileName in files)
 	{
         projectsPaths.add(fileName)
 	}
