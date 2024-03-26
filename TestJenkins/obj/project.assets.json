@@ -15,9 +15,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\src\\test_async_app_for_it\\TestJenkins\\TestJenkins\\TestJenkins.csproj",
-      "projectName": "TestJenkins",
-      "projectPath": "C:\\src\\test_async_app_for_it\\TestJenkins\\TestJenkins\\TestJenkins.csproj",
+      "projectUniqueName": "C:\\src\\test_async_app_for_it\\TestJenkins\\TestJenkins\\Jenkins.csproj",
+      "projectName": "Jenkins",
+      "projectPath": "C:\\src\\test_async_app_for_it\\TestJenkins\\TestJenkins\\Jenkins.csproj",
       "packagesPath": "C:\\Users\\sshreider\\.nuget\\packages\\",
       "outputPath": "C:\\src\\test_async_app_for_it\\TestJenkins\\TestJenkins\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\src\\test_async_app_for_it\\TestJenkins\\JenkinsUnitTests\\JenkinsUnitTests.csproj": {}
+    "C:\\src\\test_async_app_for_it\\TestJenkins\\JenkinsUnitTests\\Jenkins.Test.csproj": {}
   },
   "projects": {
-    "C:\\src\\test_async_app_for_it\\TestJenkins\\JenkinsUnitTests\\JenkinsUnitTests.csproj": {
+    "C:\\src\\test_async_app_for_it\\TestJenkins\\JenkinsUnitTests\\Jenkins.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\src\\test_async_app_for_it\\TestJenkins\\JenkinsUnitTests\\JenkinsUnitTests.csproj",
-        "projectName": "JenkinsUnitTests",
-        "projectPath": "C:\\src\\test_async_app_for_it\\TestJenkins\\JenkinsUnitTests\\JenkinsUnitTests.csproj",
+        "projectUniqueName": "C:\\src\\test_async_app_for_it\\TestJenkins\\JenkinsUnitTests\\Jenkins.Test.csproj",
+        "projectName": "Jenkins.Test",
+        "projectPath": "C:\\src\\test_async_app_for_it\\TestJenkins\\JenkinsUnitTests\\Jenkins.Test.csproj",
         "packagesPath": "C:\\Users\\sshreider\\.nuget\\packages\\",
         "outputPath": "C:\\src\\test_async_app_for_it\\TestJenkins\\JenkinsUnitTests\\obj\\",
         "projectStyle": "PackageReference",

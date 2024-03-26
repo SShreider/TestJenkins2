@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lOW+1+OSk16fJWRtY0MSFPNqS0Qs3joUlNO9E67NarL1qNDNGX+HODj49+WqQTl2Y3KRO2AK0S1wilv83FFSuQ==",
+  "dgSpecHash": "/K5Fkm6eiNaEtScFh0OXAllJ20YsjKtoK3ru1RpPeDwbd+Ago1H1ljsNicO99tkwcKZLKVLZQKzXofNxFZosyg==",
   "success": true,
-  "projectFilePath": "C:\\src\\test_async_app_for_it\\TestJenkins\\JenkinsUnitTests\\JenkinsUnitTests.csproj",
+  "projectFilePath": "C:\\src\\test_async_app_for_it\\TestJenkins\\JenkinsUnitTests\\Jenkins.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sshreider\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\sshreider\\.nuget\\packages\\microsoft.codecoverage\\17.6.0\\microsoft.codecoverage.17.6.0.nupkg.sha512",

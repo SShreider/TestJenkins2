@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kx/7eRUJNea1FZviLQnfH6F3LMgUkwWs2wF57wdKH52oldnxgLGWMG/jqVQH5t3L3vj6PrDNqMvU+ig+jMSvTg==",
+  "dgSpecHash": "KXrhMRxKT46LpwiG+PjyHShFWvVTts9u/P/4zN0gAek5vup2Mbu6anNXjZxcFZb0tjQ9gn71ytWfGVI7LgR5Pw==",
   "success": true,
-  "projectFilePath": "C:\\src\\test_async_app_for_it\\TestJenkins\\TestJenkins\\TestJenkins.csproj",
+  "projectFilePath": "C:\\src\\test_async_app_for_it\\TestJenkins\\TestJenkins\\Jenkins.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
