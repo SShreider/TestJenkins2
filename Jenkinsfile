@@ -106,7 +106,7 @@ pipeline
 		{
             steps 
 			{
-                git branch: 'master', credentialsId: GitRepoCredentials, url: GitRepo
+                git branch: 'main', credentialsId: GitRepoCredentials, url: GitRepo
             }
         }
 		stage ('Get projects to build') 
