@@ -3,6 +3,12 @@ import groovy.transform.Field
 import org.apache.commons.io.FilenameUtils
  
 @Field
+final String GitRepo = 'https://github.com/SShreider/TestJenkins2.git'
+
+@Field
+final String GitRepoCredentials = 'f7e62595-1e4d-4a35-8b56-062b1076e919'
+ 
+@Field
 ArrayList projectsPaths = []
 
 @Field
@@ -100,7 +106,7 @@ pipeline
 		{
             steps 
 			{
-                git branch: 'master', credentialsId: 'f7e62595-1e4d-4a35-8b56-062b1076e919', url: 'https://ghe.soti.net/MobiControl/Soti.MobiControl.AiServices.git'
+                git branch: 'master', credentialsId: GitRepoCredentials, url: GitRepo
             }
         }
 		stage ('Get projects to build') 
