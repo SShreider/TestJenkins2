@@ -164,7 +164,7 @@ pipeline
 				archiveArtifacts artifacts: '**/bin/Release/net8.0/*.exe', followSymlinks: false
 			}
 		}
-		stage('Publish dlls and run coverage')
+		stage('Run coverage')
 		{
 			steps
 			{
