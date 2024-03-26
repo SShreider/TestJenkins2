@@ -8,9 +8,6 @@ ArrayList projectsPaths = []
 @Field
 ArrayList testProjectsDlls = []
  
-@Field
-ArrayList testProjectsPublishedDlls = []
- 
 @NonCPS
 def setProjectsPaths()
 {	
@@ -38,22 +35,6 @@ def setTestProjectsDllNames()
 	}
 }
  
-@NonCPS
-def setTestProjectsPublishedDllNames()
-{
-	for (path in projectsPaths)
-	{
-		def projContents = new XmlSlurper().parse(path)
-		if(projContents.PropertyGroup.IsTestProject.text() == "true")
-		{
-			def filename = path.name.lastIndexOf('.').with {it != -1 ? path.name[0..<it] : path.name}
-			def filePath = path.getParent()
-
-			testProjectsPublishedDlls.add(filePath + '\\bin\\Release\\net8.0\\publish\\' + filename + '.dll')
-		}
-	}
-}
- 
 def restoreProjects()
 {	
 
@@ -76,14 +57,6 @@ def buildProjects()
 	for (path in projectsPaths)
 	{
 		bat 'dotnet build ' + path + ' /nologo /nr:false /p:configuration=\"release\" /t:clean;restore;rebuild'
-	}
-}
- 
-def publishProjects()
-{
-	for (path in projectsPaths)
-	{
-		bat 'dotnet publish ' + path + ' /nologo /nr:false /p:configuration=\"release\" /t:clean;restore;rebuild'
 	}
 }
  
@@ -139,7 +112,6 @@ pipeline
 				{
 					setProjectsPaths()
 					setTestProjectsDllNames()
-					setTestProjectsPublishedDllNames()
 				}
 			}
 		}
