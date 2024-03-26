@@ -1,5 +1,4 @@
 import groovy.transform.Field
-import org.apache.commons.io.FilenameUtils
  
 @Field
 final String GitRepo = 'https://github.com/SShreider/TestJenkins2'
@@ -36,8 +35,6 @@ def setTestProjectsDllNames()
 			testProjectsDlls.add(filePath + '\\bin\\Release\\net8.0\\' + fileName + '.dll')
 		}
 	}
-    println "HERE >>>>>>>>>"
-    println testProjectsDlls
 }
  
 def restoreProjects()
